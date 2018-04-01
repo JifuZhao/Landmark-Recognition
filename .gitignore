@@ -6,8 +6,8 @@ __pycache__/
 # C extensions
 *.so
 data/*
-models/*.h5
-#models/*p
+*.h5
+#*p
 
 # Distribution / packaging
 .Python
