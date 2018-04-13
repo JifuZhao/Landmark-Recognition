@@ -1,7 +1,7 @@
 # Landmark_Recognition
-Real-world Landmark Recognition with Triplet Network
 
-Question: Given a photo, can we recognize the correct landmarks it contains?
+* Question: Given a photo, can we recognize the correct landmarks it contains?
+
 <img src="./images/problem.png" alt="Problem" style="width: 400px;"/>
 
 ## One-shot learning
