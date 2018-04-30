@@ -1,0 +1,102 @@
+\begin{thebibliography}{10}
+
+\bibitem{simonyan2014very}
+Karen Simonyan and Andrew Zisserman.
+\newblock Very deep convolutional networks for large-scale image recognition.
+\newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
+
+\bibitem{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 770--778, 2016.
+
+\bibitem{szegedy2016rethinking}
+Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew
+  Wojna.
+\newblock Rethinking the inception architecture for computer vision.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 2818--2826, 2016.
+
+\bibitem{krizhevsky2009learning}
+Alex Krizhevsky and Geoffrey Hinton.
+\newblock Learning multiple layers of features from tiny images.
+\newblock 2009.
+
+\bibitem{imagenet_cvpr09}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
+\newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
+\newblock In {\em CVPR09}, 2009.
+
+\bibitem{fei2006one}
+Li~Fei-Fei, Rob Fergus, and Pietro Perona.
+\newblock One-shot learning of object categories.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  28(4):594--611, 2006.
+
+\bibitem{liu2012street}
+Si~Liu, Zheng Song, Guangcan Liu, Changsheng Xu, Hanqing Lu, and Shuicheng Yan.
+\newblock Street-to-shop: Cross-scenario clothing retrieval via parts alignment
+  and auxiliary set.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
+  Conference on}, pages 3330--3337. IEEE, 2012.
+
+\bibitem{koch2015siamese}
+Gregory Koch, Richard Zemel, and Ruslan Salakhutdinov.
+\newblock Siamese neural networks for one-shot image recognition.
+\newblock In {\em ICML Deep Learning Workshop}, volume~2, 2015.
+
+\bibitem{schroff2015facenet}
+Florian Schroff, Dmitry Kalenichenko, and James Philbin.
+\newblock Facenet: A unified embedding for face recognition and clustering.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 815--823, 2015.
+
+\bibitem{liu2015targeting}
+Jingtuo Liu, Yafeng Deng, Tao Bai, Zhengping Wei, and Chang Huang.
+\newblock Targeting ultimate accuracy: Face recognition via deep embedding.
+\newblock {\em arXiv preprint arXiv:1506.07310}, 2015.
+
+\bibitem{wang2014learning}
+Jiang Wang, Thomas Leung, Chuck Rosenberg, Jinbin Wang, James Philbin, Bo~Chen,
+  Ying Wu, et~al.
+\newblock Learning fine-grained image similarity with deep ranking.
+\newblock {\em arXiv preprint arXiv:1404.4661}, 2014.
+
+\bibitem{lin2015rapid}
+Kevin Lin, Huei-Fang Yang, Kuan-Hsien Liu, Jen-Hao Hsiao, and Chu-Song Chen.
+\newblock Rapid clothing retrieval via deep learning of binary codes and
+  hierarchical search.
+\newblock In {\em Proceedings of the 5th ACM on International Conference on
+  Multimedia Retrieval}, pages 499--502. ACM, 2015.
+
+\bibitem{kiapour2015buy}
+M~Hadi Kiapour, Xufeng Han, Svetlana Lazebnik, Alexander~C Berg, and Tamara~L
+  Berg.
+\newblock Where to buy it: Matching street clothing photos in online shops.
+\newblock In {\em ICCV}, pages 3343--3351, 2015.
+
+\bibitem{wang2016matching}
+Xi~Wang, Zhenfeng Sun, Wenqiang Zhang, Yu~Zhou, and Yu-Gang Jiang.
+\newblock Matching user photos to online products with robust deep features.
+\newblock In {\em Proceedings of the 2016 ACM on International Conference on
+  Multimedia Retrieval}, pages 7--14. ACM, 2016.
+
+\bibitem{shankar2017deep}
+Devashish Shankar, Sujay Narumanchi, HA~Ananya, Pramod Kompalli, and Krishnendu
+  Chaudhury.
+\newblock Deep learning based large scale visual recommendation and search for
+  e-commerce.
+\newblock {\em arXiv preprint arXiv:1703.02344}, 2017.
+
+\bibitem{qi2017audio}
+Xiaoyu Qi, Deshun Yang, and Xiaoou Chen.
+\newblock Audio feature learning with triplet-based embedding network.
+\newblock In {\em AAAI}, pages 4979--4980, 2017.
+
+\bibitem{chollet2017deep}
+Francois Chollet.
+\newblock {\em Deep learning with Python}.
+\newblock Manning Publications Co., 2017.
+
+\end{thebibliography}

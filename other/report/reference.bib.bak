@@ -1,0 +1,150 @@
+@article{simonyan2014very,
+  title={Very deep convolutional networks for large-scale image recognition},
+  author={Simonyan, Karen and Zisserman, Andrew},
+  journal={arXiv preprint arXiv:1409.1556},
+  year={2014}
+}
+
+@inproceedings{he2016deep,
+  title={Deep residual learning for image recognition},
+  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition},
+  pages={770--778},
+  year={2016}
+}
+
+@inproceedings{szegedy2016rethinking,
+  title={Rethinking the inception architecture for computer vision},
+  author={Szegedy, Christian and Vanhoucke, Vincent and Ioffe, Sergey and Shlens, Jon and Wojna, Zbigniew},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={2818--2826},
+  year={2016}
+}
+
+@article{krizhevsky2009learning,
+  title={Learning multiple layers of features from tiny images},
+  author={Krizhevsky, Alex and Hinton, Geoffrey},
+  year={2009},
+  publisher={Citeseer}
+}
+
+@inproceedings{imagenet_cvpr09,
+ author = {Deng, J. and Dong, W. and Socher, R. and Li, L.-J. and Li, K. and Fei-Fei, L.},
+ title = {{ImageNet: A Large-Scale Hierarchical Image Database}},
+ booktitle = {CVPR09},
+ year = {2009},
+ bibsource = {"http://www.image-net.org/papers/imagenet_cvpr09.bib"}
+}
+
+
+@article{fei2006one,
+  title={One-shot learning of object categories},
+  author={Fei-Fei, Li and Fergus, Rob and Perona, Pietro},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={28},
+  number={4},
+  pages={594--611},
+  year={2006},
+  publisher={IEEE}
+}
+
+@inproceedings{liu2012street,
+  title={Street-to-shop: Cross-scenario clothing retrieval via parts alignment and auxiliary set},
+  author={Liu, Si and Song, Zheng and Liu, Guangcan and Xu, Changsheng and Lu, Hanqing and Yan, Shuicheng},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2012 IEEE Conference on},
+  pages={3330--3337},
+  year={2012},
+  organization={IEEE}
+}
+
+
+@article{shankar2017deep,
+  title={Deep learning based large scale visual recommendation and search for E-Commerce},
+  author={Shankar, Devashish and Narumanchi, Sujay and Ananya, HA and Kompalli, Pramod and Chaudhury, Krishnendu},
+  journal={arXiv preprint arXiv:1703.02344},
+  year={2017}
+}
+
+@inproceedings{schroff2015facenet,
+  title={Facenet: A unified embedding for face recognition and clustering},
+  author={Schroff, Florian and Kalenichenko, Dmitry and Philbin, James},
+  booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition},
+  pages={815--823},
+  year={2015}
+}
+
+@article{wang2014learning,
+  title={Learning fine-grained image similarity with deep ranking},
+  author={Wang, Jiang and Leung, Thomas and Rosenberg, Chuck and Wang, Jinbin and Philbin, James and Chen, Bo and Wu, Ying and others},
+  journal={arXiv preprint arXiv:1404.4661},
+  year={2014}
+}
+
+@inproceedings{wang2016matching,
+  title={Matching user photos to online products with robust deep features},
+  author={Wang, Xi and Sun, Zhenfeng and Zhang, Wenqiang and Zhou, Yu and Jiang, Yu-Gang},
+  booktitle={Proceedings of the 2016 ACM on International Conference on Multimedia Retrieval},
+  pages={7--14},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{lin2015rapid,
+  title={Rapid clothing retrieval via deep learning of binary codes and hierarchical search},
+  author={Lin, Kevin and Yang, Huei-Fang and Liu, Kuan-Hsien and Hsiao, Jen-Hao and Chen, Chu-Song},
+  booktitle={Proceedings of the 5th ACM on International Conference on Multimedia Retrieval},
+  pages={499--502},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{koch2015siamese,
+  title={Siamese neural networks for one-shot image recognition},
+  author={Koch, Gregory and Zemel, Richard and Salakhutdinov, Ruslan},
+  booktitle={ICML Deep Learning Workshop},
+  volume={2},
+  year={2015}
+}
+
+@inproceedings{kiapour2015buy,
+  title={Where to Buy It: Matching Street Clothing Photos in Online Shops.},
+  author={Kiapour, M Hadi and Han, Xufeng and Lazebnik, Svetlana and Berg, Alexander C and Berg, Tamara L},
+  booktitle={ICCV},
+  pages={3343--3351},
+  year={2015}
+}
+
+@inproceedings{qi2017audio,
+  title={Audio Feature Learning with Triplet-Based Embedding Network.},
+  author={Qi, Xiaoyu and Yang, Deshun and Chen, Xiaoou},
+  booktitle={AAAI},
+  pages={4979--4980},
+  year={2017}
+}
+
+@article{liu2015targeting,
+  title={Targeting ultimate accuracy: Face recognition via deep embedding},
+  author={Liu, Jingtuo and Deng, Yafeng and Bai, Tao and Wei, Zhengping and Huang, Chang},
+  journal={arXiv preprint arXiv:1506.07310},
+  year={2015}
+}
+
+@book{chollet2017deep,
+  title={Deep learning with Python},
+  author={Chollet, Francois},
+  year={2017},
+  publisher={Manning Publications Co.}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

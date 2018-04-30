@@ -1,23 +1,6 @@
 %% This is file `elsarticle-template-1-num.tex',
 %%
 %% Copyright 2009 Elsevier Ltd
-%%
-%% This file is part of the 'Elsarticle Bundle'.
-%% ---------------------------------------------
-%%
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%%
-%% Template article for Elsevier's document class `elsarticle'
-%% with numbered style bibliographic references
-%%
-%% $Id: elsarticle-template-1-num.tex 149 2009-10-08 05:01:15Z rishi $
-%% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-1-num.tex $
-%%
 \documentclass[final,3p]{elsarticle}
 
 \usepackage{lipsum}
@@ -78,6 +61,8 @@
 
 \date{}
 
+
+% ---------------------------------------------------------------------
 \begin{document}
 
 \begin{frontmatter}
@@ -116,15 +101,19 @@
 \address{Department of Nuclear, Plasma, and Radiological Engineering \\
 University of Illinois at Urbana-Champaign, Urbana, Illinois 61801, USA}
 
+\ead{jzhao59@illinois.edu}
+\ead[]{All code is available in GitHub: https://github.com/JifuZhao/Landmark-Recognition}
+
+% ---------------------------------------------------------------------
 \begin{abstract}
 %% Text of abstract
-
+Landmark recognition is one kind of object recognition problem that hasn't been well solved. Due to large number of landmarks and highly imbalanced dataset, the classical methods used for object recognition cannot be directly applied. This paper presents the application of triplet network for large scale landmark recognition. Through fine-tuning pretrained convolutional network network (CNN) and minimizing triplet loss, the triplet network can learn appropriate metric such that most similar images can be retrieved through k-nearest neighbor (KNN) algorithms. The performance of the proposed method is evaluated on real-world landmark recognition dataset.
 \end{abstract}
 
+% ---------------------------------------------------------------------
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
 Landmark recognition \sep Triplet network \sep Deep learning \sep Metric learning
-
 \end{keyword}
 
 \end{frontmatter}
@@ -134,165 +123,150 @@ Landmark recognition \sep Triplet network \sep Deep learning \sep Metric learnin
 %%
 %\linenumbers
 
-%% main text
+% ---------------------------------------------------------------------
 \section{Introduction}
-\label{section:introduction}
+\label{S:introduction}
 
+Over the recent years, with the rapid development of deep learning techniques, especially convolutional neural networks (CNN), people have achieved huge progress in computer vision. Different kinds of network architectures have been proposed. Some widely used architectures include VGG~\cite{simonyan2014very}, ResNet~\cite{he2016deep}, Inception Network~\cite{szegedy2016rethinking} and so on. On the famous ImageNet Large Scale Visual Recognition Challenge (ILSVRC), these algorithms have achieved higher accuracy than human beings. 
 
-\begin{itemize}
-\item Bullet point one
-\item Bullet point two
-\end{itemize}
+CNNs have been proven to be one of the best solutions for computer vision tasks, which have been widely used in different areas, such as autonomous cars and automatic face recognition. The fast development of deep learning and computer vision techniques have changed people's lifestyle. However, classical object recognition tasks generally require large amount training images. For example, CIFAR-10 dataset~\cite{krizhevsky2009learning} contains 60,000 training images in 10 different classes. ImageNet dataset~\cite{imagenet_cvpr09} contains 14,191,122 images in 1,000 classes. Large amount of training images is one of the key factors to guarantee the success of CNNs. In addition, object recognition system usually use fully-connected layer as the structure for the final one or several layers, which is reasonable for the problem with only a few output classes. 
 
-\begin{enumerate}
-\item Numbered list item one
-\item Numbered list item two
-\end{enumerate}
+However, there exists a special kind of problem called one-shot learning~\cite{fei2006one} that cannot be easily solved with the classical methods. One-shot learning aims to learn information from one, or only a few, training images. And there could be a huge amount of classes. These two factors require new solutions. There are several famous one-shot learning examples, such as face recognition/verification and famous street-to-shop~\cite{liu2012street} systems. Over the past several years, a series of solutions have been proposed to solve one-shot learning problems. Siamese network~\cite{koch2015siamese} has been proposed for different problems including authorship and image recognition. Face recognition or face verification have been well studied~\cite{schroff2015facenet, liu2015targeting}. Triplet-based networks have been studied for audio and image retrieval problems~\cite{wang2014learning, lin2015rapid, kiapour2015buy, wang2016matching, shankar2017deep, qi2017audio}
 
-\subsection{Subsection One}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\hline
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\hline
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\hline
-\end{tabular}
-\caption{Table caption}
-\end{table}
-
-\subsection{Subsection Two}
+This paper focuses on landmark recognition from images. There are thousands of landmarks exist. Some are very popular and some are less popular. People around the world take countless photos that contain different landmarks, which provide enough training images. Due to highly imbalanced dataset and large amount of different landmarks, this paper focuses on one-shot learning for landmark recognition. More specifically, with some reference images that contain different landmarks, given a new image, this paper wants to design an algorithm that can automatically detect the landmarks the new image contains. Fig.~\ref{fig:problem} shows an illustration of the landmark recognition problem.
 
 % ---------------------------------------------------------------------
 \begin{figure}[hbtp]
 \centering\includegraphics[width=0.8\linewidth]{./figures/problem.pdf}
-\caption{Figure caption}
+\caption{Illustration of landmark recognition problem}
 \label{fig:problem}
 \end{figure}
 
+% ---------------------------------------------------------------------
 \section{Data}
-\label{S:3}
+\label{S:data}
+
+For a successful landmark recognition system, training data are very important. Large amount of training images that contain as many different landmarks as possible can help build more robust systems. The data used in this work come from Google-Landmarks dataset, which is released by Google on early March 2018. The whole Goolge-Landmarks dataset contains human-made and natural landmarks across the world. There are 1,225,029 training images in 14,951 different landmarks. A subset of 12 randomly sampled images are shown in Fig.~\ref{fig:sample}.
 
 % ---------------------------------------------------------------------
 \begin{figure}[hbtp]
-\centering\includegraphics[width=1.0\linewidth]{./figures/sample.png}
-\caption{Figure caption}
-\label{fig:problem}
+\centering\includegraphics[width=0.94\linewidth]{./figures/sample.png}
+\caption{Subset of sample images}
+\label{fig:sample}
 \end{figure}
 
+As shown in Fig.~\ref{fig:sample}, the training images are pretty noisy. The landmarks may not be at the center of the whole image and some landmarks might be blocked by humans. All these factors make it quite challenging. Fig.~\ref{fig:all_distribution} shows the count distribution of different landmarks sorted by the number of images for each landmark. It is clear that for some popular landmarks, such as Eiffel Tower and Mount Fuji, there are large amount training images available. For example the most popular landmarks contains more than 5,000 images. However, for less popular landmarks, the available images are few, and some landmarks only have one image. 
 
 % ---------------------------------------------------------------------
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 \centering\includegraphics[width=1.0\linewidth]{./figures/all_distribution.png}
-\caption{Figure caption}
-\label{fig:problem}
+\caption{Count distribution of Goolge-Landmark dataset}
+\label{fig:all_distribution}
 \end{figure}
 
+Limited by the computation resources, in this work, only a subset of training images are used. More specifically, there are at most 10 training images kept for each landmark. Based on this criterion, 113,783 training images in 14,943 different landmarks are chosen as the training set. The count distribution is shown in Fig.~\ref{fig:subset_distribution}. In addition, 22,255 images with 7,675 different landmarks are chosen as the validation set and 22,391 images with 14,436 different landmarks are chosen as the test set.
 
 % ---------------------------------------------------------------------
 \begin{figure}[hbtp]
 \centering\includegraphics[width=1.0\linewidth]{./figures/subset_distribution.png}
-\caption{Figure caption}
-\label{fig:problem}
+\caption{Count distribution of training images}
+\label{fig:subset_distribution}
 \end{figure}
 
 
+% ---------------------------------------------------------------------
 \section{Methodology}
-\label{S:2}
+\label{S:method}
+
+As discussed in Section~\ref{S:introduction}, with 14,943 different landmarks, classical multi-class classification networks which use fully-connected layer as the output layer is not appropriate. To solve this problem, this work focuses on metric learning. Through appropriate algorithms, the original images can be represented in a new space such that similar images will be close to each other while different images will have larger distance. Fig.~\ref{fig:triplet_learning} clearly shows this process.
 
 % ---------------------------------------------------------------------
-\begin{figure}[hbtp]
-\centering\includegraphics[width=1.0\linewidth]{./figures/learning.png}
-\caption{Figure caption}
-\label{fig:problem}
+\begin{figure}[h]
+\centering\includegraphics[width=0.8\linewidth]{./figures/learning.png}
+\caption{Illustration of metric learning}
+\label{fig:triplet_learning}
 \end{figure}
 
+Given an image (Anchor image) to determine the landmark it contains, there are two extra images used,  Positive image and Negative image. Positive image contains the same landmark with the Anchor image while Negative image contains different landmarks. When the system doesn't work correctly, the distance between the Anchor image and the Positive image would be larger than the distance between the Anchor image and the Negative image. Through metric learning, the system should be able to learn a metric such that the distance between the Anchor image and the Positive image is smaller than the distance between the Anchor image and the Negative image. In this way, the landmark of the Anchor image can be predicted using the landmark from the closest images.
 
-% ---------------------------------------------------------------------
-\begin{figure}[hbtp]
-\centering\includegraphics[width=1.0\linewidth]{./figures/triplet.png}
-\caption{Figure caption}
-\label{fig:problem}
-\end{figure}
-
-
-% ---------------------------------------------------------------------
-\begin{figure}[hbtp]
-\centering\includegraphics[width=1.0\linewidth]{./figures/system.png}
-\caption{Figure caption}
-\label{fig:problem}
-\end{figure}
-
-
-
-\section{Results}
-\label{S:4}
-% ---------------------------------------------------------------------
-\begin{figure}[hbtp]
-\centering\includegraphics[width=0.8\linewidth]{./figures/accuracy.png}
-\caption{Figure caption}
-\label{fig:problem}
-\end{figure}
-
-
-% ---------------------------------------------------------------------
-\begin{figure}[hbtp]
-\centering\includegraphics[width=1.0\linewidth]{./figures/result.png}
-\caption{Figure caption}
-\label{fig:problem}
-\end{figure}
-
+The idea in Fig.~\ref{fig:triplet_learning} leads to so-called triplet loss~\cite{schroff2015facenet}. Suppose the Anchor image, Positive image, and Negative image are denoted by $a$, $p$, and $n$ and the system defines some representation function $f(\cdot)$. Then the Euclidean distance between $a$ and $p$ is $||f(a) - f(p)||^2_2$ and the distance between $a$ and $n$ is $||f(a) - f(n)||^2_2$. Through training, the system should be able to distinguish positive and negative images such that:
 \begin{equation}
-\label{eq:emc}
-e = mc^2
+||f(a) - f(p)||^2_2 <= ||f(a) - f(n)||^2_2
 \end{equation}
 
+To make the system more robust, some margin $\alpha$ is added such that:
+\begin{equation}
+||f(a) - f(p)||^2_2 + \alpha <= ||f(a) - f(n)||^2_2
+\end{equation}
 
+From above equations, triplet loss $L(a, p, n)$ is defined as:
+\begin{equation}
+L(a, p, n) = max\{||f(a) - f(p)||^2_2 + \alpha - ||f(a) - f(n)||^2_2, 0\}
+\label{eq:triplet}
+\end{equation}
 
+The goal of the training is to minimize the triplet loss defined in Eq.~\ref{eq:triplet}. Based on above description, the final system is described in Fig.~\ref{fig:system}.
+
+% ---------------------------------------------------------------------
+\begin{figure}[h]
+\centering\includegraphics[width=0.85\linewidth]{./figures/triplet.png}
+\caption{Triplet network overall architecture}
+\label{fig:network}
+\end{figure}
+
+In Fig.~\ref{fig:network}, there are three images $a$, $p$, and $n$ as the input images. The input images are first processed by the same base-network. For computer vision tasks, CNN is generally used as the base-network. To define appropriate distance functions, the output from the base-network is normalized using L2 normalization. Finally, the triplet loss is computed using Eq.~\ref{eq:triplet}. The whole network is optimized using backpropagation. The whole system is implemented using Keras with TensorFlow as backend.
+
+As shown in Fig.~\ref{fig:network}, the performance of the whole system is determined by the base-network. Building a CNN from scratch is suggested when there are enough training images and advanced hardware. However, in this paper, limited by computation resources, building base-network from scratch is not appropriate. In addition to building CNN from scratch, pretrained CNNs can also be utilized. The simplest way is to directly apply the pretrained CNNs on landmark recognition problem without training. Since the base-network is not optimized for landmark recognition, the performance of the system is limited. Another choice is to fine-tune the pretrained CNNs. For pretrained CNNs, the lower convolution layers are usually assumed to encode more generic and reusable features, while the higher convolution layers encode specialized features~\cite{chollet2017deep}. Based on this idea, during training process, the weights for lower layers will be freezed and only the weights for higher layers are trained. Through backpropagation, the pretrained CNNs can be optimized for landmark recognition.
+
+Figure~\ref{fig:network} depicts the training process for base-network. With the base-network, the next step is to determine the landmark for unseen images. Given a large number of training images that contain different landmarks, for the unseen images, this turns out to be finding the most similar images such that the landmark for unseen images are inferred by the most similar images, which can be solved using k-Nearest Neighbor (KNN) algorithm. The whole system is shown in Fig.~\ref{fig:system}.
+
+% ---------------------------------------------------------------------
+\begin{figure}[hbtp]
+\centering\includegraphics[width=0.8\linewidth]{./figures/system.png}
+\caption{Overall landmark recognition system architecture}
+\label{fig:system}
+\end{figure}
+
+In Fig.~\ref{fig:system}, given a new input image, the pretrained neural network will compute its representation in a new space. Through KNN algorithm, the system will find the most similar images in the reference image pool and make prediction based on the retrieved images.
+
+% ---------------------------------------------------------------------
+\section{Results}
+\label{S:result}
+
+As discussed in Section~\ref{S:method}, this paper implements two types of pretrained CNNs: naive implementation and fine-tuning. More specifically, pretrained VGG16 and InceptionV3 models on ImageNet dataset are implemented. Fig.~\ref{fig:accuracy} shows the performance of different algorithms. VGG16 only and InceptionV3 only models implement pretrained VGG16 and InceptionV3 without further training, while VGG16 triplet and InceptionV3 triplet models are the models with fine-tuning. As a comparison, this paper also shows the result of random guess. It is clear that, as the number of retrieved images increases, the accuracy also increases, which is expected. The best top-1 accuracy is from triplet InceptionV3 model, which gives $47\%$ top-1 accuracy.
+
+% ---------------------------------------------------------------------
+\begin{figure}[h]
+\centering\includegraphics[width=0.7\linewidth]{./figures/accuracy.png}
+\caption{Top-k image retrieval accuracy for different numbers of retrieved images}
+\label{fig:accuracy}
+\end{figure}
+
+To show the performance of the model, Fig.~\ref{fig:result} shows the top-6 retrieved images for randomly sampled 5 images with InceptionV3 triplet model. From Fig.~\ref{fig:result}, for some images, the built system can accurately predict the landmarks the unseen images contain. However, for some unseen images, the system cannot make accurate prediction based on most similar image.
+
+% ---------------------------------------------------------------------
+\begin{figure}[h]
+\centering\includegraphics[width=1.0\linewidth]{./figures/result.png}
+\caption{Top-6 image retrieval results from sample query images}
+\label{fig:result}
+\end{figure}
+
+% ---------------------------------------------------------------------
 \section{Conclusion}
-\label{S:5}
+\label{S:conclusion}
 
+This paper studies one specific one-shot learning problem, landmark recognition. Considering the object recognition as metric learning problem, this paper implements triplet network and fine-tunes pretrained CNN models to extract useful features from the original images. With KNN algorithm, this paper achieved $47\%$ top-1 accuracy on separate test dataset.
 
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
-%% \appendix
+However, there are further procedures exist to improve the performance of the system. As discussed in Section~\ref{S:data}, the input images are pretty noisy. Through image processing, for example, adjusting the image such that the landmarks are at the center of the images and irrelevant objects are removed, the performance of the system might be further improved. In addition, due to computation resource limitation, currently, only less than $10\%$ of the total training images are actually used and the structure of the base-network hasn't been explicitly explored. All these factors might influence the performance of the system. The future work will focus on processing the input images and exploring better base-networks.
 
-%% \section{}
-%% \label{}
+% ---------------------------------------------------------------------\
+%\bibliographystyle{model1-num-names}
+%\nocite{*}
 
-%% References
-%%
-%% Following citation commands can be used in the body text:
-%% Usage of \cite is as follows:
-%%   \cite{key}          ==>>  [#]
-%%   \cite[chap. 2]{key} ==>>  [#, chap. 2]
-%%   \citet{key}         ==>>  Author [#]
+\bibliographystyle{unsrt}
+\section{\refname}
 
-%% References with bibTeX database:
-
-\bibliographystyle{model1-num-names}
-\bibliography{sample.bib}
-
-%% Authors are advised to submit their bibtex database files. They are
-%% requested to list a bibtex style file in the manuscript if they do
-%% not want to use model1-num-names.bst.
-
-%% References without bibTeX database:
-
-% \begin{thebibliography}{00}
-
-%% \bibitem must have the following form:
-%%   \bibitem{key}...
-%%
-
-% \bibitem{}
-
-% \end{thebibliography}
-
+\bibliography{reference.bib}
 
 \end{document}
 
